@@ -64,8 +64,57 @@ class Login extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline1!.copyWith(fontSize: 32),
               ),
               SizedBox(height: 20,),
-              Stack(
-                children: [],
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: (){},
+                    child: Container(
+                      child:ClipPath(
+                        child: Container(
+                          height: 40,
+                          width: 150,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(20.0),bottomLeft: Radius.circular(20.0)),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "Saju",
+                              style:Theme.of(context).textTheme.headline1!.copyWith(color: Colors.black,fontSize: 30),
+                            ),
+                          ),
+                        ),
+                        clipper: MyClipper(),
+                      )
+                    ),
+                  ),
+                  InkWell(
+                    onTap: (){
+                      print("Maggie");
+                    },
+                    child: Container(
+                          child:ClipPath(
+                            child: Container(
+                              height: 40,
+                              width: 150,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.only(bottomRight: Radius.circular(20.0),topRight: Radius.circular(20.0)),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "Maggi",
+                                  style:Theme.of(context).textTheme.headline1!.copyWith(color: Colors.black,fontSize: 30),
+                                ),
+                              ),
+                            ),
+                            clipper: MyClipper2(),
+                          )
+                      ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -73,4 +122,44 @@ class Login extends StatelessWidget {
       ),
     );
   }
+}
+
+class MyClipper extends CustomClipper<Path>{
+  @override
+  Path getClip(Size size) {
+    // TODO: implement getClip
+    var path=Path();
+    path.lineTo(0.0,size.height);
+    path.lineTo(size.width/1.2,size.height);
+    path.lineTo(size.width,0.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper oldClipper) {
+    // TODO: implement shouldReclip
+    return false;
+  }
+}
+
+class MyClipper2 extends CustomClipper<Path>{
+  @override
+  Path getClip(Size size) {
+    // TODO: implement getClip
+    var path=Path();
+    path.lineTo(25.0,0.0);
+    path.lineTo(0.0,size.height);
+    path.lineTo(size.width,size.height);
+    path.lineTo(size.width,0.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper oldClipper) {
+    // TODO: implement shouldReclip
+    return false;
+  }
+
 }
