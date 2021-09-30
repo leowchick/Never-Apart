@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:never_apart/theme.dart';
 import 'package:never_apart/theme.dart';
+import 'package:never_apart/views/Home.dart';
 import 'package:never_apart/views/animate.dart';
 
 class Login extends StatelessWidget {
@@ -69,7 +70,9 @@ class Login extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
-                    onTap: (){},
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
+                    },
                     child: Container(
                       child:ClipPath(
                         child: Container(
@@ -92,7 +95,7 @@ class Login extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: (){
-                      print("Maggie");
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
                     },
                     child: Container(
                           child:ClipPath(
